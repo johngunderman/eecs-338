@@ -27,6 +27,7 @@ main (void) {
   /* Library/System calls go here: */
   timer = time(NULL);
   ctimer = ctime(&timer);
+  /* TODO: Apparently we are not supposed to use cuserid. Need to find alternative. */
   cuserid(username);
   gethostname(hostname, STRLEN);
   getcwd(cwd, STRLEN * 2);
@@ -48,7 +49,6 @@ main (void) {
   /* Here begin the child stuffs, along with numerous HIPPO references */
 
   putenv("HIPPO=11");
-  
 
   /* Child Process C1: */
   pid1 = fork();
@@ -58,7 +58,17 @@ main (void) {
     printf("Hi! I'm a child! (C1)\n");
     printf("My name is %d, and my mommy's name is %d!\n", getpid(), getppid());
     fflush(NULL);
-
+    usleep(2000);		/* Sleep for 2 microsec */
+    putenv("HIPPO=9");
+    printf("9 little Hippopotamus (HIPPO=9) C1\n");
+    fflush(NULL);
+    usleep(2000);
+    putenv("HIPPO=9");
+    printf("6 little Hippopotamus (HIPPO=6) C1\n");
+    fflush(NULL);
+    usleep(2000);
+    putenv("HIPPO=3");
+    printf("3 little Hippopotamus (HIPPO=3) C1\n");
     exit(0);
   } else { 			/* we are in the parent process */
   }
@@ -71,9 +81,31 @@ main (void) {
     printf("Hi! I'm a child! (C2)\n");
     printf("My name is %d, and my mommy's name is %d!\n", getpid(), getppid());    
     fflush(NULL);
+    usleep(2000);
+    putenv("HIPPO=8");
+    printf("8 little Hippopotamus (HIPPO=8) C2\n");
+    fflush(NULL);
+    usleep(2000);
+    putenv("HIPPO=5");
+    printf("5 little Hippopotamus (HIPPO=5) C2\n");
+    usleep(2000);
+    putenv("HIPPO=2");
+    printf("2 little Hippopotamus (HIPPO=2) C2\n");
 
     exit(0);
   } else { 			/* we are in the parent process */
+    putenv("HIPPO=10");
+    usleep(1000); 		/* Sleep for 2 microsecs */
+    printf("10 little Hippopotamus (HIPPO=10) P\n");
+    usleep(2000);
+    putenv("HIPPO=7");
+    printf("7 little Hippopotamus (HIPPO=7) P\n");
+    usleep(2000);
+    putenv("HIPPO=4");
+    printf("4 little Hippopotamus (HIPPO=4) P\n");
+    usleep(2000);
+    putenv("HIPPO=1");
+    printf("1 little Hippopotamus (HIPPO=1) P\n");
   }
 
   
