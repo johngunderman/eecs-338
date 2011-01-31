@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <time.h>
 #include <unistd.h>
+#include <errno.h>
 
 const int STRLEN = 128;
 
@@ -40,10 +41,6 @@ main (void) {
   printf("Current Time:\t%s", ctimer);
   printf("CWD:\t\t%s\n", cwd);
 
-  free(hostname);
-  free(username);
-  free(cwd);
-  /* ctimer points to static memory, so we don't need to free it. */
 
 
   /* Here begin the child stuffs, along with numerous HIPPO references */
@@ -69,6 +66,12 @@ main (void) {
     usleep(2000);
     putenv("HIPPO=3");
     printf("3 little Hippopotamus (HIPPO=3) C1\n");
+    
+    usleep(2000);
+    
+    chdir("/");
+    execlp("/bin/ls", "ls", "-l", "-h", (char *) NULL);
+
     exit(0);
   } else { 			/* we are in the parent process */
   }
@@ -92,6 +95,15 @@ main (void) {
     putenv("HIPPO=2");
     printf("2 little Hippopotamus (HIPPO=2) C2\n");
 
+    usleep(3000);
+
+    getcwd(cwd, STRLEN * 2);
+    printf(" \nC2 is currently operating in %s\n", cwd);
+
+    /* sorta hack to increment the number (increments the ascii value,
+     but it works out the same.*/
+    printf("The contents of HIPPO + 1 in C2 is %c\n\n", (getenv("HIPPO")[0] + 1));
+
     exit(0);
   } else { 			/* we are in the parent process */
     putenv("HIPPO=10");
@@ -108,7 +120,18 @@ main (void) {
     printf("1 little Hippopotamus (HIPPO=1) P\n");
   }
 
+
+  /* Free all of our junk. */
+  free(hostname);
+  free(username);
+  free(cwd);
+  /* ctimer points to static memory, so we don't need to free it. */
   
 
   exit(0);
+
+ error:
+  
+  fprintf(stderr, "ERROR: %d\n", errno);
+  exit(errno);
 }
