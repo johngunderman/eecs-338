@@ -1,0 +1,62 @@
+Script started on Mon 31 Jan 2011 06:03:13 PM EST
+]0;jrg149@eecslinab: ~/eecs338-code/hw1jrg149@eecslinab:~/eecs338-code/hw1$ gcc -g[K[Khippo
+hippo    hippo.c  
+]0;jrg149@eecslinab: ~/eecs338-code/hw1jrg149@eecslinab:~/eecs338-code/hw1$ gcc hippo.c hippo[K[K[K[K[K-o hippo
+hippo.c: In function ‘main’:
+hippo.c:40: warning: cast from pointer to integer of different size
+hippo.c:44: warning: cast from pointer to integer of different size
+]0;jrg149@eecslinab: ~/eecs338-code/hw1jrg149@eecslinab:~/eecs338-code/hw1$ ./hippo
+I am teh parentz, all your childs are belong to me.
+PID:		6599
+Hostname:	eecslinab
+Username:	jrg149
+Current Time:	Mon Jan 31 18:04:23 2011
+CWD:		/home/jrg149/eecs338-code/hw1
+Hi! I'm a child! (C1)
+My name is 6600, and my mommy's name is 6599!
+Hi! I'm a child! (C2)
+My name is 6601, and my mommy's name is 6599!
+10 little Hippopotamus (HIPPO=10) P
+9 little Hippopotamus (HIPPO=9) C1
+8 little Hippopotamus (HIPPO=8) C2
+7 little Hippopotamus (HIPPO=7) P
+6 little Hippopotamus (HIPPO=6) C1
+5 little Hippopotamus (HIPPO=5) C2
+4 little Hippopotamus (HIPPO=4) P
+3 little Hippopotamus (HIPPO=3) C1
+2 little Hippopotamus (HIPPO=2) C2
+1 little Hippopotamus (HIPPO=1) P
+total 92K
+drwxr-xr-x   2 root root 4.0K 2011-01-26 16:19 bin
+drwxr-xr-x   3 root root 4.0K 2011-01-26 16:20 boot
+lrwxrwxrwx   1 root root   11 2011-01-07 11:59 cdrom -> media/cdrom
+drwxr-xr-x  13 root root 3.6K 2011-01-20 10:45 dev
+drwxr-xr-x 140 root root  12K 2011-01-31 15:37 etc
+drwxr-xr-x  79 root root 4.0K 2011-01-26 16:23 home
+lrwxrwxrwx   1 root root   32 2011-01-07 17:30 initrd.img -> boot/initrd.img-2.6.31-22-server
+lrwxrwxrwx   1 root root   32 2011-01-07 12:00 initrd.img.old -> boot/initrd.img-2.6.31-14-server
+drwxr-xr-x  14 root root  12K 2011-01-26 16:19 lib
+lrwxrwxrwx   1 root root    4 2011-01-07 12:00 lib64 -> /lib
+drwx------   2 root root  16K 2011-01-07 11:59 lost+found
+drwxr-xr-x   4 root root 4.0K 2011-01-07 17:13 media
+drwxr-xr-x   3 root root 4.0K 2011-01-20 10:44 mnt
+drwxr-xr-x   2 root root 4.0K 2011-01-07 12:00 opt
+dr-xr-xr-x 214 root root    0 2011-01-10 13:44 proc
+drwx------   9 root root 4.0K 2011-01-20 11:03 root
+drwxr-xr-x   2 root root 4.0K 2011-01-26 16:19 sbin
+drwxr-xr-x   2 root root 4.0K 2009-10-19 20:48 selinux
+drwxr-xr-x   3 root root 4.0K 2011-01-26 21:18 srv
+drwxr-xr-x  13 root root    0 2011-01-10 13:44 sys
+drwxrwxrwt  13 root root 4.0K 2011-01-31 18:04 tmp
+drwxr-xr-x  11 root root 4.0K 2011-01-26 20:58 usr
+drwxr-xr-x  16 root root 4.0K 2011-01-20 14:25 var
+lrwxrwxrwx   1 root root   29 2011-01-07 17:30 vmlinuz -> boot/vmlinuz-2.6.31-22-server
+lrwxrwxrwx   1 root root   29 2011-01-07 12:00 vmlinuz.old -> boot/vmlinuz-2.6.31-14-server
+ 
+C2 is currently operating in /home/jrg149/eecs338-code/hw1
+The contents of HIPPO + 1 in C2 is 3
+
+]0;jrg149@eecslinab: ~/eecs338-code/hw1jrg149@eecslinab:~/eecs338-code/hw1$ exit
+
+Script done on Mon 31 Jan 2011 06:04:55 PM EST
+
