@@ -25,13 +25,30 @@ main (void) {
   ctimer = malloc(sizeof(char) * STRLEN);
   cwd = malloc(sizeof(char) * STRLEN * 2);
 
+  /* Check for malloc errors */
+  if (!pid || !hostname || !username || !ctimer || !cwd) {
+    errno = 1;
+    perror("ERROR upon attempting to malloc");
+    errno = 0;
+  }
+
   /* Library/System calls go here: */
   timer = time(NULL);
+  timer != -1 ? NULL : perror("ERROR on call to time()"); 
+
   ctimer = ctime(&timer);
+  (int) ctimer != -1 ? NULL : perror("ERROR on call to ctime()"); 
+
   /* TODO: Apparently we are not supposed to use cuserid. Need to find alternative. */
   cuserid(username);
+  (int) cuserid != -1 ? NULL : perror("ERROR on call to cuserid()"); 
+
   gethostname(hostname, STRLEN);
+  errno == 0 ? NULL : perror("ERROR on call to gethostname()"); 
+
   getcwd(cwd, STRLEN * 2);
+  errno == 0 ? NULL : perror("ERROR on call to getcwd()"); 
+  
 
 
   printf("I am teh parentz, all your childs are belong to me.\n");
@@ -49,6 +66,7 @@ main (void) {
 
   /* Child Process C1: */
   pid1 = fork();
+  errno == 0 ? NULL : perror("ERROR on call to fork()"); 
 
   if (pid1 == 0) { 		/* We are in the child process */
     
@@ -71,6 +89,7 @@ main (void) {
     
     chdir("/");
     execlp("/bin/ls", "ls", "-l", "-h", (char *) NULL);
+    errno == 0 ? NULL : perror("ERROR on call to execlp()"); 
 
     exit(0);
   } else { 			/* we are in the parent process */
@@ -78,6 +97,7 @@ main (void) {
 
   /* Child process C2: */
   pid2 = fork();
+  errno == 0 ? NULL : perror("ERROR on call to fork()"); 
 
   if (pid2 == 0) { 		/* We are in the child process */
 
@@ -129,9 +149,4 @@ main (void) {
   
 
   exit(0);
-
- error:
-  
-  fprintf(stderr, "ERROR: %d\n", errno);
-  exit(errno);
 }
