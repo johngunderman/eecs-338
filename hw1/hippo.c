@@ -141,12 +141,13 @@ main (void) {
   }
 
 
+  wait(-1);
+
   /* Free all of our junk. */
   free(hostname);
   free(username);
   free(cwd);
   /* ctimer points to static memory, so we don't need to free it. */
-  
 
   exit(0);
 }
