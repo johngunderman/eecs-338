@@ -142,6 +142,7 @@ main (void) {
 
 
   wait(-1);
+  usleep(2000);
 
   /* Free all of our junk. */
   free(hostname);
